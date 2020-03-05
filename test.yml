@@ -1,0 +1,9 @@
+- hosts: localhost
+
+  vars:
+  - testplugin: "{{ lookup('hashivault', 'secret=kv/data/vault token=root url=http://10.194.216.105:30188/ validate_certs=false') }}"
+  tasks:
+
+  - name: show user
+    debug:
+      msg: "{{ testplugin }}"
